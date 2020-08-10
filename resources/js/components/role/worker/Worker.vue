@@ -24,6 +24,7 @@
 
 <script>
     import WorkerSideBar from "../../sidebar/WorkerSideBar.vue";
+    
 
     import WorkerProjects from "./project/index.vue";
     import WorkerAbsents from "./absent/index.vue";
@@ -57,5 +58,6 @@
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
 
 </style>
