@@ -5,13 +5,14 @@
  */
 
 require('./bootstrap');
-
+require("bootstrap-css-only/css/bootstrap.min.css");
+require("mdbvue/lib/css/mdb.min.css");
+require("@fortawesome/fontawesome-free/css/all.min.css");
 window.Vue = require('vue');
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import router  from './router';
-import 'materialize-css';
-import 'materialize-css/dist/css/materialize.css';
+
 
 Vue.use(VueRouter)
 

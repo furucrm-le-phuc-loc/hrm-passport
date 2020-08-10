@@ -26,6 +26,7 @@
     "dependencies": {
         "material-design-icons-iconfont": "^5.0.1",
         "materialize-css": "^1.0.0-rc.2",
+        "mdbvue": "^6.7.1",
         "vue-axios": "^2.1.5",
         "vue-materialize-datatable": "^1.0.3",
         "vue-router": "^3.4.2",
