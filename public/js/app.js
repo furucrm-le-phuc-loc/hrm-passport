@@ -1941,7 +1941,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      role: "worker"
+      role: "admin"
     };
   },
   components: {
@@ -2144,7 +2144,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      items: [{
+        age: 40,
+        first_name: 'Dickerson',
+        last_name: 'Macdonald'
+      }, {
+        age: 21,
+        first_name: 'Larsen',
+        last_name: 'Shaw'
+      }, {
+        age: 89,
+        first_name: 'Geneva',
+        last_name: 'Wilson'
+      }, {
+        age: 38,
+        first_name: 'Jami',
+        last_name: 'Carney'
+      }]
+    };
+  }
+});
 
 /***/ }),
 
@@ -38475,24 +38498,20 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    { staticClass: "p-4 p-md-5 pt-5", attrs: { id: "content" } },
+    [
+      _c("h2", { staticClass: "mb-4" }, [_vm._v("Sidebar #05")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Admin User")]),
+      _vm._v(" "),
+      _c("b-table", { attrs: { striped: "", hover: "", items: _vm.items } })
+    ],
+    1
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "p-4 p-md-5 pt-5", attrs: { id: "content" } },
-      [
-        _c("h2", { staticClass: "mb-4" }, [_vm._v("Sidebar #05")]),
-        _vm._v(" "),
-        _c("p", [_vm._v(" Admin User ")])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -55089,14 +55108,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!***********************************************************!*\
   !*** ./resources/js/components/role/admin/user/index.vue ***!
   \***********************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index_vue_vue_type_template_id_b66ea7e8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=b66ea7e8& */ "./resources/js/components/role/admin/user/index.vue?vue&type=template&id=b66ea7e8&");
 /* harmony import */ var _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js& */ "./resources/js/components/role/admin/user/index.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -55126,7 +55146,7 @@ component.options.__file = "resources/js/components/role/admin/user/index.vue"
 /*!************************************************************************************!*\
   !*** ./resources/js/components/role/admin/user/index.vue?vue&type=script&lang=js& ***!
   \************************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -56039,8 +56059,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/loc/Documents/hrm-passport/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/loc/Documents/hrm-passport/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\furu-hrm-passport\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\furu-hrm-passport\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
