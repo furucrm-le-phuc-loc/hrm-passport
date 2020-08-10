@@ -7,10 +7,11 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
-
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import router  from './router';
+import 'materialize-css';
+import 'materialize-css/dist/css/materialize.css';
 
 Vue.use(VueRouter)
 

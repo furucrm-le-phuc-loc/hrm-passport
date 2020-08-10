@@ -1,4 +1,5 @@
 <template>
+<div>
     <nav id="sidebar">
         <div class="custom-menu">
                 <button type="button" id="sidebarCollapse" class="btn btn-primary">
@@ -44,6 +45,7 @@
 
         </div>
     </nav>
+</div>
 </template>
 
 <script>
