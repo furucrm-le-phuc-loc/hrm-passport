@@ -23,7 +23,7 @@
 </head>
 <body>
     <div id="app">
-        <router-link to="/login"><a>url to category</a></router-link>
+        {{-- <router-link to="/login"><a>url to category</a></router-link> --}}
         {{-- <p>asdasdasd</p> --}}
         {{-- <index-component></index-component> --}}
         {{-- <example-component></example-component> --}}

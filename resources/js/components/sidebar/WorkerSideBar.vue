@@ -31,7 +31,7 @@
                         Report
                     </a>
                 </li>
-
+                <Logout></Logout>
             </ul>
 
         </div>
@@ -39,6 +39,8 @@
 </template>
 
 <script>
+import Logout from "../auth/Logout";
+
 export default {
     data() {
         return {
@@ -57,6 +59,9 @@ export default {
 
     computed: {
 
+    },
+    components: {
+        Logout,
     }
 }
 </script>
