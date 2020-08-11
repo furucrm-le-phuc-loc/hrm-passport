@@ -46,7 +46,7 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function() {
     Route::group([
         'prefix' => 'admin',
         'namespace' => 'Admin',
-        'middleware' => 'scope: role-admin',
+        'middleware' => 'scope:role-admin',
     ],
     function () {
         // amdin user

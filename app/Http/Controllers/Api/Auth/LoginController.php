@@ -5,16 +5,23 @@ namespace App\Http\Controllers\Api\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Validator;
+
 use Auth;
 
 class LoginController extends Controller
 {
     //
     public function login(Request $request) {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+
+
+        $validator = Validator::make($request->all(), [
+            'name' => ['required', 'string', 'max:255', 'exists:users'],
             'password' => ['required', 'string', 'min:8'],
         ]);
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()], 404);
+        }
 
         $data = [
             'name' => $request->name,
@@ -40,7 +47,7 @@ class LoginController extends Controller
 
 
         return response(array(
-        'message' => 'Unauthorized, check your credentials.',
+        'message' => 'password is invalid',
         ), 401);
     }
 
@@ -58,11 +65,11 @@ class LoginController extends Controller
         // if(Auth::check()) {
         //     return response()->json([
         //         'user' => auth('api')->user(),
-        //     ], 200); 
+        //     ], 200);
         // }
 
         return response()->json([
             'user' => auth('api')->user(),
-        ], 200); 
+        ], 200);
     }
 }

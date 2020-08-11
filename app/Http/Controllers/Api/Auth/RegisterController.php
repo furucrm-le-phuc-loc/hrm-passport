@@ -5,15 +5,25 @@ namespace App\Http\Controllers\Api\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Validator;
+
+use \App\User;
+use Illuminate\Support\Facades\Hash;
+
 class RegisterController extends Controller
 {
     //
     public function register(Request $request) {
-        $request->validate([
+        
+
+        $validator = Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:255', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()], 404);
+        }
 
         $user = new User();
         $user->name = $request->name;
@@ -24,6 +34,6 @@ class RegisterController extends Controller
 
         return response(array(
             'message' => 'Register successful!!!',
-        ), 401);
+        ), 200);
     }
 }
