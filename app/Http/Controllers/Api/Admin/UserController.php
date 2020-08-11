@@ -22,8 +22,8 @@ class UserController extends Controller
         //
         // dd(User::all());
         // return UserResource::collection(User::all());
-        // return new UserCollection(User::all());
-        return User::latest()->pagiante(10);
+        return new UserCollection(User::all());
+
     }
 
     /**

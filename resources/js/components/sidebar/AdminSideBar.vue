@@ -36,6 +36,8 @@
                         Dashboard
                     </a>
                 </li>
+                <Logout></Logout>
+
                 <!-- <div id="example-3">
                 <button v-on:click="say('hi')">Say hi</button>
                 <button v-on:click="say('what')">Say what</button>
@@ -47,6 +49,7 @@
 </template>
 
 <script>
+import Logout from "../auth/Logout";
 export default {
     data() {
         return {
@@ -58,6 +61,10 @@ export default {
             // alert(msg);
             this.$emit('changeController', msg)
         },
+
+        logout: function() {
+
+        }
         // say: function (message) {
         //     alert(message)
         // }
@@ -65,6 +72,9 @@ export default {
 
     computed: {
 
+    },
+    components: {
+        Logout,
     }
 }
 </script>

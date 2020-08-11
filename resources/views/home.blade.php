@@ -20,10 +20,13 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+    <!--Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
 </head>
 <body>
     <div id="app">
-        <router-link to="/login"><a>url to category</a></router-link>
+        {{-- <router-link to="/login"><a>url to category</a></router-link> --}}
         {{-- <p>asdasdasd</p> --}}
         {{-- <index-component></index-component> --}}
         {{-- <example-component></example-component> --}}

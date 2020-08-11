@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use \App\User;
+// use Auth;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,6 +15,8 @@ use \App\User;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+
 
 Route::middleware('client')->get('/client/user', function (Request $request) {
     return User::all();
@@ -27,8 +30,15 @@ Route::middleware('client')->get('/password/user', function (Request $request) {
     return User::all();
 });
 
-Route::post('users/{id}', function ($id) {
-
+Route::group([
+    'prefix' => 'auth',
+    'namespace' => 'Api'
+],
+function() {
+    Route::post('/login', 'Auth\LoginController@login');
+    Route::post('/logout', 'Auth\LoginController@logout');
+    Route::post('/register', 'Auth\RegisterController@register');
+    Route::get('/user', 'Auth\LoginController@getUser');
 });
 
 
@@ -36,7 +46,7 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function() {
     Route::group([
         'prefix' => 'admin',
         'namespace' => 'Admin',
-        'middleware' => 'scope: role-admin',
+        'middleware' => 'scope:role-admin',
     ],
     function () {
         // amdin user
