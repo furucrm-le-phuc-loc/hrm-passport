@@ -6,6 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
+
+use App\User;
+use \App\Http\Resources\User\UserResource;
+use \App\Http\Resources\User\UserCollection;
+
 class ReportController extends Controller
 {
     /**
@@ -14,18 +19,7 @@ class ReportController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request) {
-
-        // dd(User::with(['absentApplication', 'reports'])->get());
-        if (!isset($request->project_id)) {
-            $users = User::with(['absentApplication'])->get();
-        }
-        else {
-
-        }
-        $projects = Project::all();
-
-
-        return response()->json(['message' => 'report index']);
+        return new UserCollection(User::all());
     }
 
     /**

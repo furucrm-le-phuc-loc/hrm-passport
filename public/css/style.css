@@ -10656,7 +10656,7 @@ body {
 
 a {
   transition: 0.3s all ease;
-  color: #3445b4;
+  color: #1b1c23;
 }
 
 a:hover,
@@ -10727,7 +10727,7 @@ h5,
 #sidebar {
   min-width: 270px;
   max-width: 270px;
-  background: #3445b4;
+  background: #1b1c23;
   color: #fff;
   transition: all 0.3s;
   position: relative;
@@ -10753,7 +10753,7 @@ h5,
 
 #sidebar h1 .logo span {
   font-size: 14px;
-  color: #44bef1;
+  color: #b9c3c7;
   display: block;
 }
 
@@ -10781,7 +10781,7 @@ h5,
 }
 
 #sidebar ul li a span {
-  color: #44bef1;
+  color: #b9c3c7;
 }
 
 #sidebar ul li a:hover {
@@ -10844,7 +10844,7 @@ h5,
   bottom: 0;
   content: "";
   transform: rotate(45deg);
-  background: #3445b4;
+  background: #1b1c23;
   border-radius: 10px;
 }
 
@@ -10880,14 +10880,14 @@ a[data-toggle=collapse] {
 }
 
 .btn.btn-primary {
-  background: #3445b4;
-  border-color: #3445b4;
+  background: #1b1c23;
+  border-color: #1b1c23;
 }
 
 .btn.btn-primary:hover,
 .btn.btn-primary:focus {
-  background: #3445b4 !important;
-  border-color: #3445b4 !important;
+  background: #1b1c23 !important;
+  border-color: #1b1c23 !important;
 }
 
 .footer p {
@@ -10929,7 +10929,16 @@ a[data-toggle=collapse] {
   color: rgba(255, 255, 255, 0.5);
 }
 
+.fa {
+  color: #b9c3c7;
+}
+
+#sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
 .subscribe-form .form-control {
-  background: #3b4ec6;
+  background: #262831;
 }
 

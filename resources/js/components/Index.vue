@@ -56,12 +56,27 @@ export default {
     //     }
     // },
     created() {
+        axios.interceptors.response.use(function (response) {
+
+
+            return response;
+        }, function (error) {
+            // Any status codes that falls outside the range of 2xx cause this function to trigger
+            // Do something with response error
+            console.log(error.response);
+            if (error.response.status == 401) {
+                localStorage.removeItem('token');
+                this.$router.go('/login');
+            }
+            return Promise.reject(error);
+        });
         axios.defaults.headers.common['Authorization'] = "Bearer " + localStorage.getItem('token');
         axios.get('/api/auth/user')
         .then(response => {
-            console.log(response.data.user);
+            console.log(response.data);
             this.role = response.data.user.role;
-        });
+        })
+
 
     },
 

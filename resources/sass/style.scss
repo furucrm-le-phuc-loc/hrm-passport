@@ -3,8 +3,8 @@
 @import 'bootstrap/mixins';
 
 $font-primary: 'Poppins',Arial, sans-serif;
-$primary: #3445b4;
-$secondary: #44bef1;
+$primary: #1b1c23;
+$secondary: #b9c3c7;
 
 body{
 	font-family: $font-primary;
@@ -250,6 +250,12 @@ a[data-toggle="collapse"] {
 	}
 }
 
+.fa {
+    color: $secondary;
+}
+#sidebar {
+    position: sticky;
+}
 
 .subscribe-form{
 	.form-control{

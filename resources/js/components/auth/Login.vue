@@ -48,7 +48,7 @@
                     </div>
 
                     <input type="password"  class="fadeIn third" name="password" placeholder="password" v-model="userRegister.password">
-                    
+
 
                     <input type="password"  class="fadeIn third" name="password_confirmation"
                         v-model="userRegister.password_confirmation" placeholder="password confirmation">
@@ -61,7 +61,8 @@
 
                 <!-- Remind Passowrd -->
                 <div id="formFooter">
-                    <!-- <a class="" href="#">Forgot Password?</a> -->
+                    <!-- use the modal component, pass in the prop -->
+
                 </div>
 
             </div>
@@ -70,7 +71,9 @@
 </template>
 
 <script>
+// import modalMeo from "./ModelTest"
 export default {
+
     data() {
         return {
             isLogin: true,
@@ -86,7 +89,7 @@ export default {
             },
             error: false,
             errors: {
-                
+
             }
         }
     },
@@ -129,7 +132,7 @@ export default {
                 //save token
                 // console.log(response.data.user);
                 this.error =  false;
-                
+
                 window.location.replace("/");
             })
             .catch(error =>  {
@@ -155,6 +158,8 @@ export default {
     computed: {
 
 
+    },
+    components: {
     }
 }
 </script>
@@ -162,7 +167,12 @@ export default {
 <style scoped>
 
 
-
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .5s;
+    }
+    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+        opacity: 0;
+    }
 
     html {
         background-color: #44475f;

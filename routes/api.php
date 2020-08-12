@@ -38,7 +38,7 @@ function() {
     Route::post('/login', 'Auth\LoginController@login');
     Route::post('/logout', 'Auth\LoginController@logout');
     Route::post('/register', 'Auth\RegisterController@register');
-    Route::get('/user', 'Auth\LoginController@getUser');
+    Route::get('/user', 'Auth\LoginController@getUser')->middleware('auth:api');
 });
 
 
@@ -82,7 +82,7 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function() {
             'prefix' => 'report'
         ],
         function () {
-
+            Route::get('/', 'ReportController@index')->name('admin.report.index');
         });
     });
 
