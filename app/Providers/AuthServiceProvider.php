@@ -42,6 +42,6 @@ class AuthServiceProvider extends ServiceProvider
             config('passport.personal_access_client.secret')
         );
 
-        Passport::personalAccessTokensExpireIn(Carbon::now()->addMinutes(5));
+        Passport::personalAccessTokensExpireIn(Carbon::now()->addMinutes(59));
     }
 }

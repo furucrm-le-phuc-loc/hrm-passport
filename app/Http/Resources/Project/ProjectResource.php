@@ -9,7 +9,7 @@ use \App\Http\Resources\User\UserCollection;
 
 class ProjectResource extends JsonResource
 {
-    public static $wrap = "projects";
+    public static $wrap = "project";
     /**
      * Transform the resource into an array.
      *

@@ -32,5 +32,9 @@
         {{-- <example-component></example-component> --}}
         <router-view></router-view>
     </div>
+
+    {{-- <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsMyaK7aIpFYjTIbPBafSnxxOg3SwSIIk&libraries=places"
+        async defer></script> --}}
 </body>
 </html>

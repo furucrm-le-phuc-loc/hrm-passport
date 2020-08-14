@@ -47,7 +47,7 @@ class UserController extends Controller
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = bcrypt($request->name) ;
+        $user->password = bcrypt($request->password) ;
         $user->role = $request->role;
         $user->save();
 
@@ -79,16 +79,17 @@ class UserController extends Controller
         // var_dump();
 
         $validator = Validator::make($request->all(), [
-            'name' => 'required|unique:users',
-            'email' => 'required|email|unique:users',
-            'password' => 'required'
+            'name' => 'required|unique:users,name,'.$id,
+            'email' => 'required|email|unique:users,email,'.$id,
         ]);
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 404);
         }
 
         $user = User::find($id);
-        $user->update($request->input());
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->role = $request->role;
         $user->save();
 
         return response()->json($user);

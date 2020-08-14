@@ -43,9 +43,11 @@ class ProjectController extends Controller
             'project_name' => 'required',
             'number_worker' => 'required',
             'from_date' => 'required|date',
+            'manager' => 'required',
             'to_date' => 'required|after:from_date',
-            'time_checkin' => 'required',
-            'time_checkout' => 'required|after:time_checkin'
+            'time_checkin' => 'required|date_format:H:i',
+            'time_checkout' => 'required|date_format:H:i|after:time_checkin',
+            'location_name' => 'required'
         ]);
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 404);
@@ -56,6 +58,7 @@ class ProjectController extends Controller
         $project->number_worker = $request->number_worker;
         $project->from_date = $request->from_date;
         $project->to_date = $request->to_date;
+        $project->managed = $request->manager;
         $project->time_checkin = $request->time_checkin;
         $project->time_checkout = $request->time_checkout;
 
@@ -101,9 +104,11 @@ class ProjectController extends Controller
             'project_name' => 'required',
             'number_worker' => 'required',
             'from_date' => 'required|date',
+            'manager' => 'required',
             'to_date' => 'required|after:from_date',
             'time_checkin' => 'required',
-            'time_checkout' => 'required|after:time_checkin'
+            'time_checkout' => 'required|after:time_checkin',
+            'location_name' => 'required'
         ]);
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 404);
@@ -113,6 +118,7 @@ class ProjectController extends Controller
         $project->project_name = $request->project_name;
         $project->number_worker = $request->number_worker;
         $project->from_date = $request->from_date;
+        $project->managed = $request->manager;
         $project->to_date = $request->to_date;
         $project->time_checkin = $request->time_checkin;
         $project->time_checkout = $request->time_checkout;
@@ -145,10 +151,6 @@ class ProjectController extends Controller
 
 
     public function assign($id) {
-        $project = Project::find($id) ;
-        $managers = User::where('role', 'manager')->get();
-
-        // $managers = new UserCollection($managers);
 
         $workers = User::with('projects')
             ->where('role', 'worker')
@@ -157,16 +159,9 @@ class ProjectController extends Controller
                 ->get()
                 ->pluck('user_id'))
             ->get();
-        // $workers = new UserCollection($workers);
 
-        $admin = User::where('role', 'admin')->first();
-        // $admin = new UserResource($admin);
-        // dd(ProjectUser::select('user_id')->where('project_id', $id)->get()->pluck('user_id'));
         return response()->json([
-            'project' => $project,
             'workers' => $workers,
-            'managers' => $managers,
-            'admin' => $admin,
         ]);
     }
 
@@ -177,29 +172,44 @@ class ProjectController extends Controller
 
     public function assignPost(Request $request, $id) {
 
-        // dd($req->input());
-        $project = Project::find($id);
-        $project->managed = $request->manager;
-        foreach ($request->workers as $worker) {
-            $obj->users()->attach($worker);
-        }
+        // return response()->json($request->workers, 200);
 
+        $project = Project::find($id);
+        foreach ($request->workers as $worker) {
+
+            $project->users()->attach($worker);
+        }
 
         $project->save();
         // dd($obj);
         // dd($user);
-        return response()->json($project);
+        return response()->json([
+            'message' => "assign successfull!!"
+        ], 200);
     }
 
     public function deleteAssigned(Request $request, $id) {
         // $project_id = $request->project_id;
+        // return response()->json([
+        //     'message' => "assign successfull!!",
+        //     'user_id' =>  $request->user_id,
+        //     'project_id' => $id,
+        // ], 200);
         $user_id = $request->user_id;
+
         ProjectUser::where('user_id', $user_id)
             ->where('project_id', $id)
             ->get()
             ->first()
             ->delete();
-        return 204;
+
+        return response()->json([
+            'message' => "delete successfull!!"
+        ], 204);
+    }
+
+    public function getManager() {
+        return new UserCollection(User::where('role', 'manager')->get()) ;
     }
 
 

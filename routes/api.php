@@ -62,6 +62,8 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function() {
 
             Route::get('/assign/{id}', 'ProjectController@assign')->name('admin.project.assign');
             Route::post('/assign/{id}', 'ProjectController@assignPost')->name('admin.project.assign_post');
+
+            Route::get('/manager', 'ProjectController@getManager');
         });
         Route::apiResource('project', 'ProjectController');
 
@@ -104,7 +106,6 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function() {
 
             Route::get('/approve/{id}', 'ReportController@approve')->name('manager.report.approve');
             Route::post('/reject/{id}', 'ReportController@reject')->name('manager.report.reject');
-
         });
 
         Route::apiResource('absent', 'AbsentController');

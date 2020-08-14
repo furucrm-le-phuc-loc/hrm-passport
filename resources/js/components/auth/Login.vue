@@ -316,8 +316,6 @@ export default {
         color: #cccccc;
     }
 
-    .alert-error{
-        color: red;
-    }
+
 
 </style>

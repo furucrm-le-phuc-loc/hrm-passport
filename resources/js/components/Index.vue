@@ -63,7 +63,7 @@ export default {
         }, function (error) {
             // Any status codes that falls outside the range of 2xx cause this function to trigger
             // Do something with response error
-            console.log(error.response);
+            // console.log(error.response);
             if (error.response.status == 401) {
                 localStorage.removeItem('token');
                 this.$router.go('/login');
@@ -73,7 +73,7 @@ export default {
         axios.defaults.headers.common['Authorization'] = "Bearer " + localStorage.getItem('token');
         axios.get('/api/auth/user')
         .then(response => {
-            console.log(response.data);
+            // console.log(response.data);
             this.role = response.data.user.role;
         })
 
@@ -90,6 +90,8 @@ export default {
 
 <style >
 
-
+    .alert-error{
+        color: red;
+    }
 
 </style>
