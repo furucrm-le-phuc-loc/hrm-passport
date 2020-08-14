@@ -3,12 +3,16 @@
 namespace App\Http\Resources\Report;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use \App\Location;
+use \App\ProjectUser;
+use \App\User;
+use \App\Project;
 
 class ReportResource extends JsonResource
 {
 
 
-    public static $wrap = "reports";
+    public static $wrap = "report";
 
     /**
      * Transform the resource into an array.
@@ -20,15 +24,15 @@ class ReportResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'project_name' => $this->project_name,
-            'manager' => $this->manager,
-            'number_worker' => $this->number_worker,
-            'from_date' => $this->from_date,
-            'to_date' => $this->to_date,
+            'location_checkin' => $this->location_checkin,
+            'location_checkout' => $this->location_checkout,
             'time_checkin' => $this->time_checkin,
             'time_checkout' => $this->time_checkout,
-            'location' => $this->location,
-            'users' => $this->users()->get(),
+            'content' => $this->content,
+            'time_working' => $this->time_working,
+            'state' => $this->state,
+            'project' => Project::find(ProjectUser::find($this->project_user_id)->project_id),
+            'user' => User::find(ProjectUser::find($this->project_user_id)->user_id),
         ];
     }
 }

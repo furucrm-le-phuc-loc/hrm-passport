@@ -17,7 +17,7 @@ class AbsentCollection extends ResourceCollection
     public function toArray($request)
     {
         return [
-            'absent' => $this->collection,
+            'absents' => $this->collection,
         ];
     }
 }

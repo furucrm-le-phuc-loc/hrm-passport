@@ -12,6 +12,8 @@ use \App\Project;
 use \App\ProjectUser;
 use Auth;
 
+use \App\Http\Resources\Absent\AbsentResource;
+use \App\Http\Resources\Absent\AbsentCollection;
 
 use Mail;
 use \App\Jobs\ProcessReportMail;
@@ -26,7 +28,7 @@ class AbsentController extends Controller
 
     public function index() {
         $absents = AbsentApplication::all();
-        return response()->json($absents);
+        return new AbsentCollection($absents);
     }
 
     public function approve(Request $request, $id) {
@@ -81,6 +83,8 @@ class AbsentController extends Controller
     public function show($id)
     {
         //
+        $absent = AbsentApplication::find($id);
+        return new AbsentResource($absent);
     }
 
     /**

@@ -4,6 +4,8 @@ namespace App\Http\Resources\User;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
+use \App\Http\Resources\Report\ReportResource;
+
 class UserResource extends JsonResource
 {
     public static $wrap = 'user';
@@ -21,8 +23,8 @@ class UserResource extends JsonResource
             'name' => $this->name,
             'email' => $this->email,
             'role' => $this->role,
-            'absent' => $this->absentApplication()->get(),
-            'reports' => $this->reports()->get(),
+            'absents' => $this->absentApplication()->get(),
+            'reports' => ReportResource::collection( $this->reports()->get()),
             'projects' => $this->projects()->get()
         ];
     }

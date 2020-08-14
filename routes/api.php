@@ -72,20 +72,20 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function() {
             'prefix' => 'absent'
         ],
         function () {
-            Route::get('/', 'AbsentController@index')->name('admin.absent.index');
-
-            Route::get('/approve/{id}', 'AbsentController@approve')->name('admin.absent.approve');
+            Route::post('/approve/{id}', 'AbsentController@approve')->name('admin.absent.approve');
             Route::post('/reject/{id}', 'AbsentController@reject')->name('admin.absent.reject');
 
         });
+        Route::apiResource('absent', 'AbsentController');
 
         // amdin report
         Route::group([
             'prefix' => 'report'
         ],
         function () {
-            Route::get('/', 'ReportController@index')->name('admin.report.index');
         });
+        Route::apiResource('report', 'ReportController');
+
     });
 
     // Manager

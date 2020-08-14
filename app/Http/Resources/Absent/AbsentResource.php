@@ -6,7 +6,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class AbsentResource extends JsonResource
 {
-    public static $wrap = "absents";
+    public static $wrap = "absent";
     /**
      * Transform the resource into an array.
      *
@@ -22,7 +22,7 @@ class AbsentResource extends JsonResource
             'number_off' => $this->number_off,
             'content' => $this->content,
             'user' => $this->user,
-            'created_at' => $this->created_at,
+            'created_at' => $this->created_at->format('d-m-Y H:i:s'),
         ];
     }
 }
